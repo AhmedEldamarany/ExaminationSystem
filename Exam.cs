@@ -36,14 +36,29 @@ namespace ExaminationSystem
     }
     class FinalExam : Exam
     {
+        MCQ mcq1;
         public FinalExam(int time, int questions_Number) : base(time, questions_Number)
         {
-            //Todo initialize the dictionary and get the qustions and all the answers 
+            QuestionList MCQs = new QuestionList("mcq1", "Multiple Choise Questions");
+            Answer a1 = new Answer("egypt", true);
+            Answer a2 = new Answer("china", true);
+            Answer a3 = new Answer("japan", true);
+            Answer a4 = new Answer("india", true);
+            AnswerList answers = new AnswerList("1");
+            answers.Add(a1);
+            answers.Add(a2);
+            answers.Add(a3);
+            answers.Add(a4);
+             mcq1 = new MCQ(10,  "where are you from?",answers);
+
+
         }
         public override void ShowExam()
         {
             base.ShowExam();
-            //TODO show all questions and all answers 
+           
+                Console.WriteLine(mcq1.ToString());
+
         }
     }
     class PracticeExam : Exam

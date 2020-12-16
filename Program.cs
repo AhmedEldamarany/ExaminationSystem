@@ -10,7 +10,9 @@ namespace ExaminationSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            FinalExam final = new FinalExam(10, 1);
+            final.ShowExam();
+            
             Console.Read();
         }
     }

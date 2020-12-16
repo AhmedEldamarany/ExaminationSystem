@@ -10,27 +10,25 @@ namespace ExaminationSystem
         public AnswerList _answers{get;protected set;}
         public override string ToString()
         {
-            return $"{_body},{_header},{_marks}";
-            //TODO add the answerlist to it to be added to the log File
+            return $"{_header} \n{_body} \n{_marks}";
         }
 
     }
     class MCQ : Question
     {
-       public MCQ(int marks,string body, string header ,AnswerList answers)
+       public MCQ(int marks, string header ,AnswerList answers)
         {
             _marks = marks;
-            _body=body;
-            _header=header;
+            _body = answers.ToString(); _header =header;
             _answers=answers;
 
 
         }
         class TrueAndFalse:Question{
-            TrueAndFalse(int marks,string body, string header,AnswerList answers )
+            TrueAndFalse(int marks, string header,AnswerList answers )
         {
             _marks = marks;
-            _body=body;
+            _body=answers.ToString();
             _header=header;
             _answers=answers;
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace ExaminationSystem
 {
@@ -16,19 +17,26 @@ namespace ExaminationSystem
         }
         public new void Add(Answer a)
         {
-
             writer = File.AppendText("answerlist.txt");
             writer.WriteLine(a.ToString());
+            writer.Close();
+            writer.Dispose();
             base.Add(a);
 
         }
-        // public Question Get(){
-        //     return 
-        // }
-        ~AnswerList(){
-            writer.Close();
-            writer.Dispose();
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+           
+            
+            
+            foreach (var item in this)
+                stringBuilder.Append( item.ToString());
+         
+            return stringBuilder.ToString() ;
         }
+
+      
 
 
     }
